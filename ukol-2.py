@@ -1,4 +1,3 @@
-
 staty = [
     {'name': 'Afghanistan', 'capital': 'Kabul', 'region': 'Asia', 'subregion': 'Southern Asia', 'population': 27657145,
      'area': 652230.0, 'gini': 27.8},
@@ -492,12 +491,17 @@ staty = [
 
 # ukol 2
 interested_region = input("O jaky region se zajimas?:")
-
+staty_v_regionu = {}
 for stat in staty:
-  if interested_region in (stat['region']):
-    if (stat['region']) in interested_region :
-      print(stat['name'])
+  if interested_region == stat['region']:
+    if interested_region == stat['region']:
+      name = stat['name']
+      staty_v_regionu[name] = name
+
+if any(staty_v_regionu):
+  print(staty_v_regionu)
 else:
-  print("Neznámý region")
+  print("Neznamy region")
+
 
 

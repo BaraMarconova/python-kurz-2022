@@ -34,21 +34,22 @@ class Serial(Polozka):
     celkova_delka = self.pocet_epizod * self.delka_epizod
     return celkova_delka
 
-
 film = Film('Gladiator', 'historicky', 135)
 serial = Serial('Pobrezni hlidka', 'akcni', 23, 45)
 
-# film.get_info()
-print(serial.get_celkova_delka())
+# print(serial.get_celkova_delka())
 
+# BONUS 
 class Uzivatel():
   def __init__ (self, uzivatelske_jmeno):
     self.uzivatelske_jmeno = uzivatelske_jmeno
     self.delka_sledovani = 0
 
   def pripocti_shlednuti(self, celkova_delka):
+    self.celkova_delka = celkova_delka
     self.delka_sledovani = self.delka_sledovani + self.celkova_delka
-    print(self.delka_sledovani)
+    print(f"Uzivatel {self.uzivatelske_jmeno} sledoval streaming celkem {self.delka_sledovani} minut.")
 
 lenka = Uzivatel('Lenka Hola')
-print(lenka.pripocti_shlednuti(film.celkova_delka))
+lenka.pripocti_shlednuti(serial.get_celkova_delka())
+lenka.pripocti_shlednuti(film.get_celkova_delka())
